@@ -1,0 +1,216 @@
+c
+\q
+\q
+\q
+DROP DATABASE IF EXISTS seed_products
+;
+CREATE DATABASE seed_products
+;
+\c seed_products
+$psql < seed_products.sql
+;
+psql < seed_products.sql
+;
+$psql < seed_products.sql
+;
+psql < seed_products.sql;
+psql -d seed_products -f seed_products.sql
+;
+\q
+\c products_db
+SELECT * FROM products
+;
+\l
+/dt
+;
+\dt;
+\c seed_products
+\dt
+\c products_db
+\dt
+\d products
+INSERT INTRO products (name, price, can_be_returned)
+VALUES ('chair', 44.00, flase);
+INSERT INTO products (name, price, can_be_returned)
+VALUES ('chair', 44.00, flaske);
+INSERT INTO products (name, price, can_be_returned)
+VALUES ('chair', 44.00, false);
+\d products
+SELECT id, name FROM products;
+INSERT INTO products (name, price, can_be_returned)
+VALUES ('stool', 25.99, true);
+INSERT INTO products (name, price, can_be_returned)
+VALUES ('table', 124.00, false);
+SELECT id, name, price, can_be_returned
+FROM products;
+\q
+CREATE DATABASE playstore
+psql -d playstore -f seed_playstore.sql
+\c playstore
+psql < seed_playstore.sql
+;
+psql -d playstore -f seed_playstore.sql;
+\q
+/l
+;
+\l
+DROP DATABASE IF EXISTS seed_products
+;
+$psql < seed_playstore.sql
+;
+psql < seed_playstore.sql;
+\q
+\l
+\q
+\l
+\c playstore
+\dt
+\d analytics
+SELECT app_name FROM analytics IF id=1880;
+SELECT * FROM analytics WHERE id = 1800;
+SELECT * FROM analutics WHERE last_updated = 8/1/18
+;
+SELECT* FROM analytics WHERE last_update = 08/01/2018;
+SELECT* FROM analytics WHERE last_updated = 08/01/2018;
+SELECT id, app_name
+FROM analytics
+WHERE last_updated = '2018-08-01';
+SELECT category, COUNT(*) AS count
+FROM analytics
+GROUP BY category;
+SELECT app_name, reviews, rating
+FROM analytics
+ORDER BY reviews DESC
+LIMIT 1;
+WHERE rating >= 4.8;
+SELECT app_name, reviews, rating
+FROM analytics
+ORDER BY reviews DESC
+LIMIT 1
+WHERE rating >= 4.8;
+SELECT app_name, reviews, rating
+FROM analytics
+WHERE rating >= 4.8
+ORDER BY reviews DESC
+LIMIT 1;
+SELECT category, AVG(rating) AS avg_rating
+FROM analytics
+GROUP BY category
+ORDER BY avg_rating DESC;
+SELECT name, price, rating 
+FROM analytics 
+WHERE rating < 3
+ORDER BY price DESC;
+SELECT app_name, price, rating 
+FROM analytics 
+WHERE rating < 3
+ORDER BY price DESC;
+SELECT app_name, price, rating 
+FROM analytics 
+WHERE rating < 3
+ORDER BY price DESC;
+LIMIT 1;
+SELECT app_name, rating, reviews
+FROM analytics 
+WHERE reviews >= 10000 AND rating <3;
+SELECT app_name, price
+FROM analytics
+WHERE price = (SELECT MAX(price) FROM analytics);
+\q
+/\l
+DROP DATABASE playstore;
+DROP DATABASE playstore;
+DROP DATABASE root;
+DROP DATABASE products_db;
+\l
+/d
+\d
+\q
+movies_example
+\movies_example
+\c movies_example
+\dt
+SELECT * FROM movies;
+SELECT * FROM movies;
+SELECT * FROM studios
+;
+SELECT id FROM studios WHERE name = 'Walt Disney Studios Motion Pictures';
+SELECT * FROM movies WHERE studio_id = 1;
+SELECT * FROM movies
+;
+\dt
+SELECT * FROM movies;
+\dt
+\l
+psql -d data -f data.sql
+;
+Q
+\q
+\c joins_exercise
+\dt
+\d vehicles
+\d owners
+SELECT id, first_name, last_name FROM owners join vehicles on owners.id = vehicles.id;
+SELECT vehicles.id, first_name, last_name
+FROM owners
+JOIN vehicles ON owners.id = vehicles.owner_id;
+SELECT owners.id AS owner_id, first_name, last_name,
+       vehicles.id AS vehicle_id, make, model, year, price, owner_id AS owner_id_vehicle
+FROM owners
+FULL JOIN vehicles ON owners.id = vehicles.owner_id;
+SELECT owners.id AS owner_id, first_name, last_name,
+       vehicles.id AS vehicle_id, make, model, year, 
+       price, owner_id AS owner_id_vehicle
+FROM owners
+JOIN vehicles ON owners.id = vehicles.owner_id;
+SELECT first_name, last_name, COUNT(vehicles.id) AS COUNT
+FROM owners
+LEFT JOIN vehicles ON owners.id = vehicles.owner_id
+GROUP BY first_name, last_name
+ORDER BY first_name ASC;
+SELECT first_name, last_name, COUNT(vehicles.id) AS COUNT, AVG(vehicles.price) AS AVERAGE PRICE
+FROM owners
+LEFT JOIN vehicles ON owners.id = vehicles.owner_id
+GROUP BY first_name, last_name
+ORDER BY first_name ASC;
+SELECT first_name, last_name,
+       ROUND(AVG(vehicles.price)) AS average_price,
+       COUNT(vehicles.id) AS count
+FROM owners
+JOIN vehicles ON owners.id = vehicles.owner_id
+GROUP BY first_name, last_name
+HAVING COUNT(vehicles.id) > 1 AND ROUND(AVG(vehicles.price)) > 10000
+ORDER BY first_name DESC;
+\q
+\l
+\q
+select * from User
+\q
+\l
+\c blogly
+SELECT * FROM users
+'
+/
+;
+;
+
+clear
+'
+:
+;
+SELECT * FROM users;
+\q
+\q
+\
+\q
+/c user
+;
+\c user;
+\blogly
+\c blogly
+/d user
+;
+\d user;
+\d User;
+\dt
+\s users
