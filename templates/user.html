@@ -15,4 +15,16 @@
 <form method="post" action="{{ url_for('delete_user', user_id=user.id) }}">
     <button type="submit">Delete</button>
 </form>
+
+<h2>Posts</h2>
+<ul>
+    {% for post in user.posts %}
+        <li>
+            <a href="{{ url_for('post_details', user_id=user.id, post_id=post.id) }}">{{ post.title }}</a>
+        </li>
+    {% endfor %}
+</ul>
+
+<a href="{{ url_for('show_new_post_form', user_id=user.id) }}">Add Post</a>
+
 {% endblock %}
